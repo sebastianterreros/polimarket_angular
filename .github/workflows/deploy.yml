@@ -56,7 +56,13 @@ jobs:
       - name: Construir la aplicación Angular
         run: npm run build -- --base-href=/polimarket_angular/ --configuration=production
 
-      # Paso 5: Subir el artefacto de construcción para GitHub Pages
+      # Paso 5: Listar contenido de la carpeta dist para depuración
+      # Este paso nos ayudará a verificar si la construcción se realizó correctamente
+      # y cuál es la ruta exacta de salida.
+      - name: Listar contenido de dist
+        run: ls -lR dist
+
+      # Paso 6: Subir el artefacto de construcción para GitHub Pages
       # Este paso toma la carpeta de salida de tu build de Angular y la hace disponible para el job de despliegue.
       - name: Subir artefacto para GitHub Pages
         uses: actions/upload-pages-artifact@v3
