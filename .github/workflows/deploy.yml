@@ -52,7 +52,7 @@ jobs:
       # Paso 4: Construir la aplicación Angular
       # Este comando ejecutará el script 'build' definido en tu package.json (normalmente 'ng build').
       # La opción '--base-href' es crucial para que Angular genere rutas correctas para GitHub Pages.
-      # La salida por defecto de Angular es 'dist/<nombre-del-proyecto>', que para este repo es 'dist/polimarket_angular'.
+      # La salida por defecto de Angular es 'dist/<nombre-del-proyecto>', que para este repo es 'dist/poli-market-angular'.
       - name: Construir la aplicación Angular
         run: npm run build -- --base-href=/polimarket_angular/ --configuration=production
 
@@ -68,8 +68,8 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           # Ruta a la carpeta de salida de tu build de Angular.
-          # Reemplaza 'polimarket_angular' con el nombre exacto de tu proyecto Angular si es diferente.
-          path: ./dist/polimarket_angular
+          # Hemos ajustado la ruta a 'dist/poli-market-angular/browser' según la salida de 'ls -lR dist'.
+          path: ./dist/poli-market-angular/browser
 
   # Job para desplegar la aplicación en GitHub Pages
   deploy:
